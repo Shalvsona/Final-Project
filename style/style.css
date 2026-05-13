@@ -30,7 +30,7 @@ body {
   background-color: #000000;
   padding: 0 2.5rem;
   height: 68px;
-  color: rgb(148, 25, 25);
+  color: var(--accent-gold);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -61,15 +61,20 @@ body {
   max-height: 530px;
   background-color: #ffffff;
   overflow: hidden;
+  margin-top: 7rem;
+  margin-bottom: 5rem;
 }
 
 .about-photo {
-  width: 100%;
+  width: 90%;
   min-height: 400px;
   display: flex;
   justify-self: center;
+  align-self: center;
   position: relative;
   overflow: hidden;
+  border-radius: 20px;
+  object-fit: cover;
 }
 
 .about-stats {
