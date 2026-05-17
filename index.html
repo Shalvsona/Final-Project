@@ -22,8 +22,27 @@
       </nav>
     </header>
     <main>
-      <section>
-       <img class="main-photo" src="imgs/hero-logo-1.png">
+      <section class="carousel-section">
+        <div class="carousel">
+          <div class="carousel-track">
+            <div class="carousel-slide active">
+              <img class="main-photo" src="imgs/hero-logo-1.png" alt="Deluxe Auto Hero 1">
+            </div>
+            <div class="carousel-slide">
+              <img class="main-photo" src="imgs/hero-logo3.png" alt="Deluxe Auto Hero 2">
+            </div>
+          </div>
+          <button class="carousel-btn carousel-btn--prev" aria-label="Previous slide">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button class="carousel-btn carousel-btn--next" aria-label="Next slide">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+          <div class="carousel-dots">
+            <button class="carousel-dot active" data-index="0" aria-label="Go to slide 1"></button>
+            <button class="carousel-dot" data-index="1" aria-label="Go to slide 2"></button>
+          </div>
+        </div>
       </section>
       <section class="about-section" id="services">
         <div>
@@ -51,5 +70,6 @@
         </div>
       </section>
     </main>
+    <script src="js/carousel.js"></script>
   </body>
 </html>
