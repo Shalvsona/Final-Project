@@ -12,35 +12,137 @@
     <header class="header">
       <nav class="navbar">
         <div class="logo">DELUXE AUTO</div>
+
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+
+        <label for="nav-toggle" class="nav-burger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+
         <ul class="nav-links">
           <li><a href="#Home">Home</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#contact">Contact</a></li>
-          <li><a href="#Cars">Cars</a></li>
         </ul>
-        </div>
+
+        <button class="signin-btn" id="openSignin">Sign In</button>
       </nav>
     </header>
+
+    <div class="modal-overlay" id="modalOverlay">
+      <div class="modal">
+        <button class="modal-close" id="closeModal" aria-label="Close"></button>
+        <div class="modal-header">
+          <div class="modal-logo">DELUXE AUTO</div>
+          <h2 class="modal-title">Welcome Back</h2>
+          <p class="modal-subtitle">
+            Sign in to access your personal collection
+          </p>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label" for="email">Email Address</label>
+            <input
+              class="form-input"
+              type="email"
+              id="email"
+              placeholder="your@email.com"
+              autocomplete="email"
+            />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="password">Password</label>
+            <input
+              class="form-input"
+              type="password"
+              id="password"
+              placeholder="••••••••"
+              autocomplete="current-password"
+            />
+            <a href="#" class="form-forgot">Forgot password?</a>
+          </div>
+          <button class="form-submit">
+            <span>Sign In</span>
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </button>
+          <p class="form-register">
+            Don't have an account? <a href="#">Request Access</a>
+          </p>
+        </div>
+      </div>
+    </div>
     <main>
       <section class="carousel-section">
         <div class="carousel">
           <div class="carousel-track">
             <div class="carousel-slide active">
-              <img class="main-photo" src="imgs/hero-logo-1.png" alt="Deluxe Auto Hero 1">
+              <img
+                class="main-photo"
+                src="imgs/hero-logo-1.png"
+                alt="Deluxe Auto Hero 1"
+              />
             </div>
             <div class="carousel-slide">
-              <img class="main-photo" src="imgs/hero-logo3.png" alt="Deluxe Auto Hero 2">
+              <img
+                class="main-photo"
+                src="imgs/hero-logo3.png"
+                alt="Deluxe Auto Hero 2"
+              />
             </div>
           </div>
-          <button class="carousel-btn carousel-btn--prev" aria-label="Previous slide">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          <button
+            class="carousel-btn carousel-btn--prev"
+            aria-label="Previous slide"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
           </button>
-          <button class="carousel-btn carousel-btn--next" aria-label="Next slide">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          <button
+            class="carousel-btn carousel-btn--next"
+            aria-label="Next slide"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
           </button>
           <div class="carousel-dots">
-            <button class="carousel-dot active" data-index="0" aria-label="Go to slide 1"></button>
-            <button class="carousel-dot" data-index="1" aria-label="Go to slide 2"></button>
+            <button
+              class="carousel-dot active"
+              data-index="0"
+              aria-label="Go to slide 1"
+            ></button>
+            <button
+              class="carousel-dot"
+              data-index="1"
+              aria-label="Go to slide 2"
+            ></button>
           </div>
         </div>
       </section>
@@ -49,17 +151,21 @@
           <img src="imgs/hero-logo2.png" class="about-photo" />
         </div>
         <div class="about-text">
-          <p >
-            At Deluxe Auto, we don't just sell cars — we create experiences. Every vehicle in our collection is hand-selected for its performance, craftsmanship, and presence. Whether you're drawn to the quiet power of a Maybach or the precision of a Porsche, we match you with the machine that moves you.
+          <p>
+            At Deluxe Auto, we don't just sell cars — we create experiences.
+            Every vehicle in our collection is hand-selected for its
+            performance, craftsmanship, and presence. Whether you're drawn to
+            the quiet power of a Maybach or the precision of a Porsche, we match
+            you with the machine that moves you.
           </p>
           <ul class="about-stats">
             <li>
-              <span >12+</span>
-              <span >Years of experience</span>
+              <span>12+</span>
+              <span>Years of experience</span>
             </li>
             <li>
-              <span >500+</span>
-              <span >Cars Delivered</span>
+              <span>500+</span>
+              <span>Cars Delivered</span>
             </li>
             <li>
               <span>98%</span>
@@ -76,7 +182,11 @@
         <div class="testimonials-grid">
           <div class="testimonial-card">
             <div class="testimonial-stars">★★★★★</div>
-            <p class="testimonial-text">"The most seamless luxury car purchase I've ever made. They found me the exact Maybach spec I wanted in under a week. Absolute professionals."</p>
+            <p class="testimonial-text">
+              "The most seamless luxury car purchase I've ever made. They found
+              me the exact Maybach spec I wanted in under a week. Absolute
+              professionals."
+            </p>
             <div class="testimonial-author">
               <div class="testimonial-avatar">GK</div>
               <div>
@@ -87,7 +197,11 @@
           </div>
           <div class="testimonial-card">
             <div class="testimonial-stars">★★★★★</div>
-            <p class="testimonial-text">"I've bought three cars through Deluxe Auto. Every time, the experience is flawless — from selection to delivery, they make you feel like the only client."</p>
+            <p class="testimonial-text">
+              "I've bought three cars through Deluxe Auto. Every time, the
+              experience is flawless — from selection to delivery, they make you
+              feel like the only client."
+            </p>
             <div class="testimonial-author">
               <div class="testimonial-avatar">NM</div>
               <div>
@@ -98,7 +212,11 @@
           </div>
           <div class="testimonial-card">
             <div class="testimonial-stars">★★★★★</div>
-            <p class="testimonial-text">"Their knowledge of each vehicle is extraordinary. They guided me to the perfect Porsche and walked me through every detail. Couldn't be happier."</p>
+            <p class="testimonial-text">
+              "Their knowledge of each vehicle is extraordinary. They guided me
+              to the perfect Porsche and walked me through every detail.
+              Couldn't be happier."
+            </p>
             <div class="testimonial-author">
               <div class="testimonial-avatar">LB</div>
               <div>
@@ -110,6 +228,142 @@
         </div>
       </section>
     </main>
-    <script src="js/carousel.js"></script>
+
+    <footer class="footer" id="contact">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">DELUXE AUTO</div>
+          <p class="footer-tagline">
+            Curating extraordinary machines<br />for discerning drivers since
+            2012.
+          </p>
+          <div class="footer-socials">
+            <a href="#" class="footer-social" aria-label="Instagram">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg>
+            </a>
+            <a href="#" class="footer-social" aria-label="Facebook">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                />
+              </svg>
+            </a>
+            <a href="#" class="footer-social" aria-label="YouTube">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"
+                />
+                <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-links-group">
+          <h4 class="footer-heading">Collection</h4>
+          <ul>
+            <li><a href="#">Sedans Limousines</a></li>
+            <li><a href="#">Sports Cars</a></li>
+            <li><a href="#">SUVs Crossovers</a></li>
+            <li><a href="#">Electric Vehicles</a></li>
+            <li><a href="#">Classic Vintage</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-group">
+          <h4 class="footer-heading">Services</h4>
+          <ul>
+            <li><a href="#">Concierge Buying</a></li>
+            <li><a href="#">Trade-In Program</a></li>
+            <li><a href="#">Financing</a></li>
+            <li><a href="#">Extended Warranty</a></li>
+            <li><a href="#">Delivery</a></li>
+          </ul>
+        </div>
+        <div class="footer-links-group">
+          <h4 class="footer-heading">Contact</h4>
+          <ul class="footer-contact-list">
+            <li>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              <span>Tbilisi, Georgia</span>
+            </li>
+            <li>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.29 6.29l.94-.94a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                />
+              </svg>
+              <span>+995 XX XX XX XXX</span>
+            </li>
+            <li>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+              <span>contact@deluxeauto.ge</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">2025 Deluxe Auto. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Settings</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="main.js"></script>
   </body>
 </html>

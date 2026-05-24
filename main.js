@@ -20,7 +20,6 @@
     dot.addEventListener("click", () => goTo(+dot.dataset.index)),
   );
 
-  // Optional: auto-advance every 5 s
   let timer = setInterval(() => goTo(current + 1), 5000);
   document
     .querySelector(".carousel")
@@ -28,5 +27,30 @@
   document.querySelector(".carousel").addEventListener("mouseleave", () => {
     clearInterval(timer);
     timer = setInterval(() => goTo(current + 1), 5000);
+  });
+})();
+
+// Sign In Modal
+(function () {
+  const overlay = document.getElementById("modalOverlay");
+  const openBtn = document.getElementById("openSignin");
+  const closeBtn = document.getElementById("closeModal");
+
+  function open() {
+    overlay.classList.add("active");
+    document.body.style.overflow = "hidden";
+  }
+  function close() {
+    overlay.classList.remove("active");
+    document.body.style.overflow = "";
+  }
+
+  openBtn.addEventListener("click", open);
+  closeBtn.addEventListener("click", close);
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) close();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") close();
   });
 })();
