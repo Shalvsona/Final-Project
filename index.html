@@ -4,9 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Car Dealership</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style/reset.css" />
     <link rel="stylesheet" href="style/style.css" />
     <link rel="stylesheet" href="style/responsive.css" />
+    <!-- FIX 1: removed the broken <link rel="stylesheet" href="collection.html"> that was corrupting all styles -->
   </head>
   <body>
     <header class="header">
@@ -83,6 +90,7 @@
         </div>
       </div>
     </div>
+
     <main>
       <section class="carousel-section">
         <div class="carousel">
@@ -146,6 +154,7 @@
           </div>
         </div>
       </section>
+
       <section class="about-section" id="services">
         <div>
           <img src="imgs/hero-logo2.png" class="about-photo" />
@@ -172,9 +181,9 @@
               <span>Client Satisfaction</span>
             </li>
           </ul>
-          <a href="#cars" class="about-cta"><span>View Our Collection</span></a>
         </div>
       </section>
+
       <section class="testimonials-section">
         <div class="section-header">
           <h2 class="section-title">What Our Clients Say</h2>
@@ -223,6 +232,66 @@
                 <div class="testimonial-name">Levan Beridze</div>
                 <div class="testimonial-role">Architect</div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FIX 2: Find section moved INSIDE <main>, BEFORE <footer> -->
+      <section class="find-section">
+        <div class="find-inner">
+          <div class="find-bg-text" aria-hidden="true">DRIVE</div>
+          <div class="find-content">
+            <p class="find-eyebrow">Hand-Curated · 2025</p>
+            <h2 class="find-title">Find Your <em>Perfect</em> Drive</h2>
+            <p class="find-desc">
+              From the whispered power of a Maybach to the primal roar of a
+              Lamborghini — our collection spans 10 of the world's most
+              extraordinary machines, each priced and ready for the right owner.
+            </p>
+            <div class="find-stats">
+              <div class="find-stat">
+                <span class="find-stat-num">10</span>
+                <span class="find-stat-label">Vehicles Available</span>
+              </div>
+              <div class="find-stat-divider"></div>
+              <div class="find-stat">
+                <span class="find-stat-num">6</span>
+                <span class="find-stat-label">Iconic Brands</span>
+              </div>
+              <div class="find-stat-divider"></div>
+              <div class="find-stat">
+                <span class="find-stat-num">€89K</span>
+                <span class="find-stat-label">Starting From</span>
+              </div>
+            </div>
+            <a href="collection.html" target="_blank" class="find-cta">
+              <span>View Our Collection</span>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </a>
+          </div>
+          <div class="find-showcase">
+            <div class="find-card find-card--1">
+              <span class="find-card-tag">From $89K</span>
+              <p class="find-card-name">Electric</p>
+            </div>
+            <div class="find-card find-card--2">
+              <span class="find-card-tag">From $215K</span>
+              <p class="find-card-name">Luxury Sedan</p>
+            </div>
+            <div class="find-card find-card--3">
+              <span class="find-card-tag">From $230K</span>
+              <p class="find-card-name">Sports</p>
             </div>
           </div>
         </div>
@@ -364,6 +433,6 @@
       </div>
     </footer>
 
-    <script src="main.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>

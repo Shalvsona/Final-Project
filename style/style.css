@@ -586,3 +586,268 @@ body {
 .footer-legal a:hover {
   color: rgba(212, 175, 55, 0.7);
 }
+
+/* ══════════════════════════════════════════
+   FIND YOUR DRIVE SECTION
+══════════════════════════════════════════ */
+.find-section {
+  background: #050505;
+  border-top: 1px solid rgba(212, 175, 55, 0.12);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.12);
+  overflow: hidden;
+  position: relative;
+}
+
+.find-inner {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 7rem 4rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+  position: relative;
+}
+
+/* Giant watermark text */
+.find-bg-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(8rem, 18vw, 22rem);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  color: rgba(212, 175, 55, 0.03);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  line-height: 1;
+}
+
+/* LEFT: content */
+.find-eyebrow {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  margin-bottom: 1.25rem;
+}
+
+.find-title {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(2.4rem, 4vw, 3.8rem);
+  font-weight: 300;
+  line-height: 1.1;
+  color: #f0ece0;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.01em;
+}
+
+.find-title em {
+  font-style: italic;
+  color: var(--accent-gold);
+}
+
+.find-desc {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: rgba(240, 236, 224, 0.55);
+  margin-bottom: 2.5rem;
+  max-width: 440px;
+}
+
+.find-stats {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 3rem;
+}
+
+.find-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0 2rem 0 0;
+}
+
+.find-stat:first-child {
+  padding-left: 0;
+}
+
+.find-stat-num {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--accent-gold);
+  line-height: 1;
+}
+
+.find-stat-label {
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(240, 236, 224, 0.4);
+}
+
+.find-stat-divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(212, 175, 55, 0.25);
+  margin: 0 2rem 0 0;
+  flex-shrink: 0;
+}
+
+.find-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #000;
+  background: var(--accent-gold);
+  text-decoration: none;
+  padding: 1rem 2rem;
+  transition:
+    background 0.25s,
+    transform 0.2s,
+    gap 0.25s;
+}
+
+.find-cta svg {
+  width: 15px;
+  height: 15px;
+  transition: transform 0.25s;
+}
+
+.find-cta:hover {
+  background: #c9a227;
+  transform: translateY(-2px);
+  gap: 1.1rem;
+}
+
+.find-cta:hover svg {
+  transform: translateX(3px);
+}
+
+/* RIGHT: floating category cards */
+.find-showcase {
+  position: relative;
+  height: 400px;
+}
+
+.find-card {
+  position: absolute;
+  background: rgba(15, 15, 15, 0.9);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  backdrop-filter: blur(8px);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  transition:
+    transform 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+    box-shadow 0.4s,
+    border-color 0.3s;
+}
+
+.find-card:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  border-color: rgba(212, 175, 55, 0.5);
+}
+
+.find-card--1 {
+  top: 10%;
+  left: 0;
+  width: 52%;
+  background-image: linear-gradient(
+    135deg,
+    rgba(212, 175, 55, 0.06) 0%,
+    transparent 60%
+  );
+}
+
+.find-card--2 {
+  top: 38%;
+  left: 22%;
+  width: 58%;
+  background-image: linear-gradient(
+    135deg,
+    rgba(212, 175, 55, 0.08) 0%,
+    transparent 60%
+  );
+  z-index: 2;
+}
+
+.find-card--3 {
+  bottom: 5%;
+  right: 0;
+  width: 52%;
+  background-image: linear-gradient(
+    135deg,
+    rgba(212, 175, 55, 0.05) 0%,
+    transparent 60%
+  );
+}
+
+.find-card-tag {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+}
+
+.find-card-name {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #f0ece0;
+  line-height: 1.2;
+}
+
+/* ══════════════════════════════════════════
+   WIDE-SCREEN (1920px+) OPTIMISATIONS
+══════════════════════════════════════════ */
+@media (min-width: 1440px) {
+  .navbar,
+  .about-section,
+  .testimonials-section,
+  .footer {
+    max-width: 1920px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .navbar {
+    padding: 0 5rem;
+  }
+
+  .about-section {
+    padding: 0 5rem;
+    margin-top: 7rem;
+    margin-bottom: 5rem;
+    max-height: 600px;
+  }
+
+  .testimonials-section {
+    padding: 7rem 5rem;
+  }
+
+  .find-inner {
+    padding: 9rem 5rem;
+  }
+
+  .footer {
+    padding: 6rem 5rem 3rem;
+  }
+}

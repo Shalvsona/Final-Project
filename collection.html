@@ -1,0 +1,698 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Collection — Deluxe Auto</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --gold: #d4af37;
+        --gold-dim: rgba(212, 175, 55, 0.18);
+        --gold-mid: rgba(212, 175, 55, 0.45);
+        --bg: #080808;
+        --card-bg: #0f0f0f;
+        --border: rgba(212, 175, 55, 0.15);
+        --text: #f0ece0;
+        --muted: rgba(240, 236, 224, 0.45);
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: "Montserrat", sans-serif;
+        min-height: 100vh;
+      }
+
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 4rem;
+        height: 68px;
+        background: rgba(8, 8, 8, 0.92);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+      }
+      .nav-logo {
+        font-size: 0.9rem;
+        font-weight: 700;
+        letter-spacing: 0.35em;
+        color: var(--gold);
+        text-transform: uppercase;
+        text-decoration: none;
+      }
+      .nav-back {
+        font-size: 0.68rem;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--muted);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: color 0.2s;
+      }
+      .nav-back:hover {
+        color: var(--gold);
+      }
+      .nav-back svg {
+        width: 14px;
+        height: 14px;
+      }
+
+      .hero {
+        padding: 6rem 4rem 4rem;
+        max-width: 1920px;
+        margin: 0 auto;
+      }
+      .hero-eyebrow {
+        font-size: 0.62rem;
+        font-weight: 700;
+        letter-spacing: 0.4em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 1.25rem;
+      }
+      .hero-title {
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: clamp(2.8rem, 6vw, 5.5rem);
+        font-weight: 300;
+        line-height: 1.05;
+        color: var(--text);
+        margin-bottom: 1.5rem;
+        letter-spacing: -0.01em;
+      }
+      .hero-title em {
+        font-style: italic;
+        color: var(--gold);
+      }
+      .hero-sub {
+        font-size: 0.82rem;
+        color: var(--muted);
+        letter-spacing: 0.05em;
+        line-height: 1.8;
+        max-width: 480px;
+      }
+
+      .filter-bar {
+        max-width: 1920px;
+        margin: 0 auto;
+        padding: 0 4rem 3rem;
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+      .filter-btn {
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.62rem;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--muted);
+        background: transparent;
+        border: 1px solid var(--border);
+        padding: 0.5rem 1.1rem;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .filter-btn:hover,
+      .filter-btn.active {
+        color: var(--gold);
+        border-color: var(--gold-mid);
+        background: var(--gold-dim);
+      }
+
+      .grid {
+        max-width: 1920px;
+        margin: 0 auto;
+        padding: 0 4rem 6rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .card {
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        transition:
+          transform 0.35s cubic-bezier(0.23, 1, 0.32, 1),
+          box-shadow 0.35s;
+        cursor: pointer;
+        position: relative;
+      }
+      .card:hover {
+        transform: translateY(-6px);
+        box-shadow:
+          0 28px 60px rgba(0, 0, 0, 0.6),
+          0 0 0 1px var(--gold-mid);
+      }
+      .card-badge {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        font-size: 0.56rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        background: var(--gold);
+        color: #000;
+        padding: 0.3rem 0.7rem;
+        z-index: 2;
+      }
+      .card-img-wrap {
+        position: relative;
+        overflow: hidden;
+        aspect-ratio: 16/9;
+        background: #161616;
+      }
+      .card-img-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition:
+          transform 0.65s cubic-bezier(0.23, 1, 0.32, 1),
+          filter 0.4s;
+        filter: brightness(0.88) saturate(0.9);
+      }
+      .card:hover .card-img-wrap img {
+        transform: scale(1.05);
+        filter: brightness(0.95) saturate(1.05);
+      }
+      .card-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(8, 8, 8, 0.55) 0%,
+          transparent 55%
+        );
+        pointer-events: none;
+      }
+      .card-body {
+        padding: 1.5rem 1.75rem 1.75rem;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        gap: 0.75rem;
+      }
+      .card-make {
+        font-size: 0.58rem;
+        font-weight: 700;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: var(--gold);
+      }
+      .card-name {
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: 1.55rem;
+        font-weight: 500;
+        color: var(--text);
+        line-height: 1.2;
+        letter-spacing: 0.01em;
+      }
+      .card-specs {
+        display: flex;
+        gap: 1.25rem;
+        flex-wrap: wrap;
+      }
+      .spec {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+      }
+      .spec-val {
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: var(--text);
+      }
+      .spec-label {
+        font-size: 0.55rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .card-divider {
+        height: 1px;
+        background: var(--border);
+        margin: 0.25rem 0;
+      }
+      .card-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .card-price {
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: var(--gold);
+        letter-spacing: 0.02em;
+      }
+      .card-cta {
+        font-size: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #000;
+        background: var(--gold);
+        border: none;
+        padding: 0.55rem 1.1rem;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          transform 0.2s;
+      }
+      .card-cta:hover {
+        background: #c9a227;
+        transform: translateY(-1px);
+      }
+
+      .page-footer {
+        border-top: 1px solid var(--border);
+        padding: 2rem 4rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.68rem;
+        color: var(--muted);
+        letter-spacing: 0.05em;
+        max-width: 1920px;
+        margin: 0 auto;
+      }
+
+      .detail-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(8px);
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s;
+      }
+      .detail-overlay.open {
+        opacity: 1;
+        pointer-events: all;
+      }
+      .detail-modal {
+        background: #0a0a0a;
+        border: 1px solid var(--gold-mid);
+        max-width: 560px;
+        width: 100%;
+        padding: 2.5rem;
+        position: relative;
+        transform: translateY(30px);
+        transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+      }
+      .detail-overlay.open .detail-modal {
+        transform: translateY(0);
+      }
+      .detail-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: none;
+        border: none;
+        color: var(--muted);
+        font-size: 1.4rem;
+        cursor: pointer;
+        transition: color 0.2s;
+        line-height: 1;
+      }
+      .detail-close:hover {
+        color: var(--gold);
+      }
+      .detail-make {
+        font-size: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 0.5rem;
+      }
+      .detail-name {
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: 2rem;
+        font-weight: 500;
+        color: var(--text);
+        margin-bottom: 0.5rem;
+      }
+      .detail-price {
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: 1.6rem;
+        color: var(--gold);
+        margin-bottom: 1.5rem;
+      }
+      .detail-desc {
+        font-family: "Cormorant Garamond", Georgia, serif;
+        font-size: 1rem;
+        line-height: 1.85;
+        color: rgba(240, 236, 224, 0.65);
+        margin-bottom: 2rem;
+      }
+      .detail-btn {
+        width: 100%;
+        background: var(--gold);
+        color: #000;
+        border: none;
+        padding: 1rem;
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .detail-btn:hover {
+        background: #c9a227;
+      }
+
+      @media (max-width: 1024px) {
+        .nav,
+        .hero,
+        .filter-bar,
+        .grid,
+        .page-footer {
+          padding-left: 2rem;
+          padding-right: 2rem;
+        }
+        .grid {
+          grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        }
+      }
+      @media (max-width: 768px) {
+        .nav {
+          padding: 0 1.25rem;
+        }
+        .hero {
+          padding: 4rem 1.25rem 2.5rem;
+        }
+        .filter-bar {
+          padding: 0 1.25rem 2rem;
+        }
+        .grid {
+          padding: 0 1.25rem 4rem;
+          grid-template-columns: 1fr;
+        }
+        .page-footer {
+          padding: 1.5rem 1.25rem;
+          flex-direction: column;
+          gap: 0.75rem;
+          text-align: center;
+        }
+      }
+      @media (min-width: 1600px) {
+        .grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <a href="index.html" class="nav-logo">Deluxe Auto</a>
+      <a href="index.html" class="nav-back">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+        Back to Home
+      </a>
+    </nav>
+
+    <section class="hero">
+      <p class="hero-eyebrow">Curated Selection · 2025</p>
+      <h1 class="hero-title">Our <em>Collection</em></h1>
+      <p class="hero-sub">
+        Every vehicle is hand-selected for performance, craftsmanship, and
+        presence. Find the machine that moves you.
+      </p>
+    </section>
+
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All Vehicles</button>
+      <button class="filter-btn" data-filter="sedan">Sedan</button>
+      <button class="filter-btn" data-filter="sports">Sports</button>
+      <button class="filter-btn" data-filter="suv">SUV</button>
+      <button class="filter-btn" data-filter="electric">Electric</button>
+    </div>
+
+    <div class="grid" id="carGrid"></div>
+
+    <footer class="page-footer">
+      <span>© 2025 Deluxe Auto. All rights reserved.</span>
+      <span>Tbilisi, Georgia · contact@deluxeauto.ge</span>
+    </footer>
+
+    <div class="detail-overlay" id="detailOverlay">
+      <div class="detail-modal">
+        <button class="detail-close" id="detailClose">&#x2715;</button>
+        <p class="detail-make" id="dMake"></p>
+        <h2 class="detail-name" id="dName"></h2>
+        <p class="detail-price" id="dPrice"></p>
+        <p class="detail-desc" id="dDesc"></p>
+        <button class="detail-btn">Request This Vehicle</button>
+      </div>
+    </div>
+
+    <script>
+      const cars = [
+        {
+          make: "Mercedes-Benz",
+          name: "Maybach S 680",
+          year: 2024,
+          price: "$215,000",
+          badge: "Featured",
+          category: "sedan",
+          hp: "621 hp",
+          time: "4.8s",
+          origin: "Germany",
+          desc: "The pinnacle of automotive luxury. The Maybach S 680 delivers a sanctuary of hand-stitched leather and burled walnut — a rolling palace with a biturbo V12 that whispers power rather than shouting it.",
+          img: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=800&q=80",
+        },
+        {
+          make: "Porsche",
+          name: "911 Turbo S",
+          year: 2024,
+          price: "$230,000",
+          badge: "In Stock",
+          category: "sports",
+          hp: "640 hp",
+          time: "2.6s",
+          origin: "Germany",
+          desc: "Fifty years of refinement compressed into one machine. The 911 Turbo S is the benchmark by which all other sports cars are measured — savage yet precise, brutal yet elegant.",
+          img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80",
+        },
+        {
+          make: "Bentley",
+          name: "Continental GT",
+          year: 2024,
+          price: "$245,000",
+          badge: "New",
+          category: "sports",
+          hp: "659 hp",
+          time: "3.6s",
+          origin: "UK",
+          desc: "A grand tourer without equal. The Continental GT fuses artisan British craftsmanship with a 6.0-litre W12 engine that devours continents as effortlessly as it turns heads.",
+          img: "https://images.unsplash.com/photo-1580274455191-1c62238fa333?w=800&q=80",
+        },
+        {
+          make: "Tesla",
+          name: "Model S Plaid",
+          year: 2024,
+          price: "$89,000",
+          badge: "Electric",
+          category: "electric",
+          hp: "1,020 hp",
+          time: "1.99s",
+          origin: "USA",
+          desc: "The fastest production sedan ever made. Zero emissions, zero compromises. The Model S Plaid redefines what a luxury electric vehicle can be — pure, calculated speed in silence.",
+          img: "https://images.unsplash.com/photo-1560958089-b8a1929cea89?w=800&q=80",
+        },
+        {
+          make: "Rolls-Royce",
+          name: "Ghost",
+          year: 2024,
+          price: "$340,000",
+          badge: "Exclusive",
+          category: "sedan",
+          hp: "563 hp",
+          time: "4.6s",
+          origin: "UK",
+          desc: "They don't make cars. They create legends. The Ghost embodies 'Post Opulent' design philosophy — a masterclass in restraint for those who know true luxury needs no announcement.",
+          img: "https://images.unsplash.com/photo-1563720223185-11003d516935?w=800&q=80",
+        },
+        {
+          make: "Lamborghini",
+          name: "Urus Performante",
+          year: 2024,
+          price: "$265,000",
+          badge: "In Stock",
+          category: "suv",
+          hp: "666 hp",
+          time: "3.3s",
+          origin: "Italy",
+          desc: "An SUV wearing a supercar's soul. The Urus Performante is Lamborghini's most polarizing and irresistible creation — a bull that conquered the Nürburgring in a suit.",
+          img: "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800&q=80",
+        },
+        {
+          make: "Ferrari",
+          name: "Roma Spider",
+          year: 2024,
+          price: "$280,000",
+          badge: "New",
+          category: "sports",
+          hp: "612 hp",
+          time: "3.4s",
+          origin: "Italy",
+          desc: "La Dolce Vita, reimagined. The Roma Spider captures the spirit of 1960s Italian cinema — effortlessly beautiful, devastatingly quick, and engineered to make every road feel like a movie set.",
+          img: "https://images.unsplash.com/photo-1592198084033-aade902d1aae?w=800&q=80",
+        },
+        {
+          make: "Aston Martin",
+          name: "DBX 707",
+          year: 2024,
+          price: "$235,000",
+          badge: "In Stock",
+          category: "suv",
+          hp: "707 hp",
+          time: "3.3s",
+          origin: "UK",
+          desc: "The world's most powerful luxury SUV. Designed by the maker of James Bond's car, the DBX 707 drives like a sports car and holds the road like a secret agent holds a grudge.",
+          img: "https://images.unsplash.com/photo-1614200179396-2bdb77ebf81b?w=800&q=80",
+        },
+        {
+          make: "Bugatti",
+          name: "Chiron Super Sport",
+          year: 2023,
+          price: "$3,900,000",
+          badge: "Ultra Rare",
+          category: "sports",
+          hp: "1,578 hp",
+          time: "2.3s",
+          origin: "France",
+          desc: "Not a car. An event. The Chiron Super Sport is one of the last expressions of the combustion engine taken to its absolute, glorious limit — a 273 mph monument to human ambition.",
+          img: "https://images.unsplash.com/photo-1567808291548-fc3ee04dbcf0?w=800&q=80",
+        },
+        {
+          make: "Range Rover",
+          name: "SV Autobiography",
+          year: 2024,
+          price: "$185,000",
+          badge: "In Stock",
+          category: "suv",
+          hp: "530 hp",
+          time: "5.4s",
+          origin: "UK",
+          desc: "The benchmark of British luxury off-roading. The Range Rover SV Autobiography offers genuine capability wrapped in hand-stitched leather — equally at home on a Mayfair street or a Georgian mountain pass.",
+          img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
+        },
+      ];
+
+      function buildCards(filter = "all") {
+        const grid = document.getElementById("carGrid");
+        const filtered =
+          filter === "all" ? cars : cars.filter((c) => c.category === filter);
+        grid.innerHTML = filtered
+          .map(
+            (car, i) => `
+          <article class="card" data-index="${cars.indexOf(car)}" style="animation-delay:${i * 0.06}s">
+            <span class="card-badge">${car.badge}</span>
+            <div class="card-img-wrap">
+              <img src="${car.img}" alt="${car.make} ${car.name}" loading="lazy" />
+              <div class="card-overlay"></div>
+            </div>
+            <div class="card-body">
+              <p class="card-make">${car.make} · ${car.year}</p>
+              <h2 class="card-name">${car.name}</h2>
+              <div class="card-specs">
+                <div class="spec"><span class="spec-val">${car.hp}</span><span class="spec-label">Power</span></div>
+                <div class="spec"><span class="spec-val">${car.time}</span><span class="spec-label">0–100 km/h</span></div>
+                <div class="spec"><span class="spec-val">${car.origin}</span><span class="spec-label">Origin</span></div>
+              </div>
+              <div class="card-divider"></div>
+              <div class="card-footer">
+                <span class="card-price">${car.price}</span>
+                <button class="card-cta">Enquire</button>
+              </div>
+            </div>
+          </article>
+        `,
+          )
+          .join("");
+
+        grid.querySelectorAll(".card").forEach((card) => {
+          card.addEventListener("click", () => openDetail(+card.dataset.index));
+        });
+      }
+
+      function openDetail(index) {
+        const car = cars[index];
+        document.getElementById("dMake").textContent = car.make;
+        document.getElementById("dName").textContent = car.name;
+        document.getElementById("dPrice").textContent = car.price;
+        document.getElementById("dDesc").textContent = car.desc;
+        document.getElementById("detailOverlay").classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+
+      document.getElementById("detailClose").addEventListener("click", () => {
+        document.getElementById("detailOverlay").classList.remove("open");
+        document.body.style.overflow = "";
+      });
+      document
+        .getElementById("detailOverlay")
+        .addEventListener("click", (e) => {
+          if (e.target === e.currentTarget) {
+            e.currentTarget.classList.remove("open");
+            document.body.style.overflow = "";
+          }
+        });
+
+      document.querySelectorAll(".filter-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          document
+            .querySelectorAll(".filter-btn")
+            .forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          buildCards(btn.dataset.filter);
+        });
+      });
+
+      buildCards();
+    </script>
+  </body>
+</html>

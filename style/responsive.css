@@ -194,3 +194,49 @@
     gap: 1.25rem;
   }
 }
+
+/* ── FIND SECTION RESPONSIVE ── */
+@media screen and (max-width: 1024px) {
+  .find-inner {
+    grid-template-columns: 1fr;
+    padding: 5rem 2rem;
+    gap: 3rem;
+  }
+
+  .find-showcase {
+    height: 260px;
+  }
+
+  .find-bg-text {
+    font-size: 10rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .find-inner {
+    padding: 4rem 1.5rem;
+    gap: 2.5rem;
+  }
+
+  .find-stats {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .find-stat {
+    padding: 0 1rem 0 0;
+  }
+
+  .find-stat-divider {
+    display: none;
+  }
+
+  .find-showcase {
+    display: none;
+  }
+
+  .find-desc {
+    max-width: 100%;
+    font-size: 1rem;
+  }
+}
